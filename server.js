@@ -10,7 +10,8 @@ app.use(express.json());
 let historicoSensores = [
     {id:1, temperatura:20, umidade:60, hora:"10:00"},
     {id:2, temperatura:25, umidade:50, hora:"11:00"},
-    {id:3, temperatura:30, umidade:40, hora:"12:00"}
+    {id:3, temperatura:30, umidade:40, hora:"12:00"},
+    {id:4, temperatura:40, umidade:50, hora:"13:00"}
 ];
 
 app.get('/api/dados', (req,res) => {
@@ -30,7 +31,7 @@ app.get('/api/dados/:id', (req,res) => {
 
 app.post('/api/dados', (req,res) => {
     const{temperatura, umidade, hora} = req.body;
-    
+
     if(!temperatura||!umidade||!hora){
         res.status(400).json({mensagem:"Dados incompletos!"});
     }
