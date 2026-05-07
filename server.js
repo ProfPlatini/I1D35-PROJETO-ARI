@@ -34,7 +34,7 @@ app.post('/api/dados', (req,res) => {
     const{temperatura, umidade, hora} = req.body;
 
     if(!temperatura||!umidade||!hora){
-        res.status(400).json({mensagem:"Dados incompletos!"});
+        return res.status(400).json({mensagem:"Dados incompletos!"});
     }
 
     let novosDados = {
